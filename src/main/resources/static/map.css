@@ -1,0 +1,62 @@
+body {
+	height: 100%;
+	width: 100%;
+}
+
+.phoebes-super-special-class {
+	position: fixed !important
+}
+
+.scrollFix {
+	height: 153px;
+	overflow: auto;
+}
+
+#map {
+	right: 0;
+	bottom: 0;
+	left: 0;
+	top: 0;
+	position: absolute
+}
+
+.control-div {
+	height: 0px;
+	z-index: 0;
+}
+
+.driver-control-div {
+	width: 350px;
+	height: 166px;
+	background-color: #fff;
+	padding: 4px;
+	border: 2px solid #000;
+	border-left: none;
+	border-bottom-right-radius: 8px;
+	border-top-right-radius: 8px;
+	margin-top: 10px;
+	box-sizing: border-box;
+	position: absolute;
+}
+
+.time-control-div {
+	width: 120px;
+	height: auto;
+	background: #fff;
+	border: 2px solid #000;
+	margin-top: 51px;
+	border-radius: 4px;
+	margin-left: 804px;
+	padding: 5px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.snailtrailform .control-label {
+	width: 60px !important;
+}
+
+.snailtrailform .controls {
+	margin-left: 70px;
+}
