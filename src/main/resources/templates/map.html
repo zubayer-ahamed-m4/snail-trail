@@ -26,42 +26,53 @@
 </head>
 <body>
 	<div id="map">Map Will Sit Here!</div>
-	<a id="resourceUrl" th:href="@{/}"></a>
-	<div class="control-div-container">
-		<div class="time-control-div" style="margin-left: 100px;">01/01/2019 @ 12:34</div>
-		<div class="driver-control-div">
-			<h3>Show location history for ...</h3>
-			<form class="form-horizontal snailtrailform">
+	<div class="time-control-div" style="display: none; position: relative;"></div>
+	<div class="driver-control-div" style="display: none; position: relative;" th:with="df=${'E, dd-MMM-yyyy'}">
+		<h3>Show location history for ...</h3>
+		<form id="mainform" class="form-horizontal snailtrailform" th:action="@{'/map/snailtrail'}" method="POST" autocomplete="off">
+			<fieldset>
 				<div class="control-group">
-					<label class="control-label" for="job-search">Driver : </labe>
+					<label class="control-label" for="job-search">Driver : </label>
 					<div class="controls">
 						<div class="input-append">
-							<input type="text" class="fomr-control typeahead input-large" placeholder="Search ..." autocomplete="off"/> 
-							<span class="add-on"><i class="icon-search"></i></span>
+							<input type="text" 
+								class="typeahead input-large include" 
+								data-search-settings="" 
+								data-required='required' 
+								placeholder="Search ..." 
+								autocomplete="off"
+								data-provide="typeahead" 
+								th:attr="data-search-url=@{'/search/driver/'}" /><span class="add-on"><i class="icon-search"></i></span>
+							<input type="hidden" id="driverId" name="driverId" class="typeahead-val"/>
+							<input type="hidden" id="driverName" name="driverName" class="typeahead-desc"/>
 						</div>
 					</div>
 				</div>
+
 				<div class="control-group">
 					<label class="control-label" for="expectedDispatchDate">From : </label>
 					<div class="controls">
 						<div class="input-append">
-							<input class="input-datesize include con-futuredate required" type="text" /><span class="add-on"><i class="icon-calendar"></i></span> @ 
-							<input class="input-mini include con-timepicker required" type="text"/><span class="add-on"><i class="icon-time"></i></span>
+							<input class="input-datesize include con-datepicker required" data-datepair="padatepair" id="fromDate" name="fromDate" type="text" th:value="${#dates.format(yesterday, df)}"/><span class="add-on"><i class="icon-calendar"></i></span> @ 
+							<input class="input-mini include con-timepicker required" id="fromTime" name="fromTime" type="text" value="00:00"/><span class="add-on"><i class="icon-time"></i></span>
 						</div>
 					</div>
 				</div>
+
 				<div class="control-group">
-					<label class="control-label" for="expectedDispatchDate">To : </label>
+					<label class="control-label" for="">To : </label>
 					<div class="controls">
 						<div class="input-append">
-							<input class="form-control" type="text" /><span class="add-on"><i class="icon-calendar"></i></span> @ 
-							<input class="input-mini include con-timepicker required" type="text"/><span class="add-on"><i class="icon-time"></i></span>
+							<input class="input-datesize include con-datepicker required" data-datepair="padatepair" id="toDate" name="toDate" type="text" th:value="${#dates.format(#dates.createNow(), df)}" /><span class="add-on"><i class="icon-calendar"></i></span> @ 
+							<input class="input-mini include con-timepicker required" id="toTime" name="toTime" type="text" th:value="${#dates.format(#dates.createNow(), 'HH:mm')}"/><span class="add-on"><i class="icon-time"></i></span>
 						</div>
 					</div>
 				</div>
+
 				<button type="submit" class="btn btn-primary pull-right snail-trail-submit-btn">Submit</button>
-			</form>
-		</div>
+			</fieldset>
+		</form>
 	</div>
+	<a id="resourcePath" th:href="@{/}"></a>
 </body>
 </html>
