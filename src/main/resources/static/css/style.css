@@ -1,0 +1,13 @@
+body{
+	padding: 0;
+	margin : 0
+}
+
+.export-import-box{
+	border: 1px solid #ddd;
+	border-top: none;
+	padding: 10px;
+	box-sizing: border-box;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}

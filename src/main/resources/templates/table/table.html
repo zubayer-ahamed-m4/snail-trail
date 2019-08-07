@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link th:href="@{/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+		<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" />
+		<script th:src="@{/js/jquery-3.3.1.min.js}" type="text/javascript"></script>
+		<script th:src="@{/js/bootstrap.js}" type="text/javascript"></script>
+		<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+		<!-- <script th:src="@{/js/dataTables.rowReorder.min.js}" type="text/javascript"></script> -->
+		<!-- <script th:src="@{/js/jquery.mockjax.min.js}"></script> -->
+		<script th:src="@{/js/jquery-ui.min.js}"></script>
+		<!-- <script th:src="@{/js/jquery.dataTables.rowReordering.js}" type="text/javascript"></script> -->
+		
+		
+		<script th:src="@{/js/asyncexportimport.js}" type="text/javascript"></script>
+		<style type="text/css">
+			table.dt-rowReorder-float{position:absolute !important;opacity:0.8;table-layout:fixed;outline:2px solid #888;outline-offset:-2px;z-index:2001}tr.dt-rowReorder-moving{outline:2px solid #555;outline-offset:-2px}body.dt-rowReorder-noOverflow{overflow-x:hidden}table.dataTable td.reorder{text-align:center;cursor:move}
+			#result {
+		        border: 1px solid #888;
+		        background: #f7f7f7;
+		        padding: 1em;
+		        margin-bottom: 1em;
+		    }
+		   /*  table tr th:first-child, table tr td:first-child{
+		    	display: none;
+		    } */
+		</style>
+	</head>
+	<body>
+		<div class="col-md-12">
+			<div class="row">
+				<nav class="navbar navbar-inverse">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<a class="navbar-brand" th:href="@{/}">Coderslab</a>
+						</div>
+						<ul class="nav navbar-nav">
+							<li><a th:href="@{/}">Home</a></li>
+							<li class="active"><a th:href="@{/asyncimportexport/addressexportimport}">Address Export Import</a></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a>
+							</li>
+							<li>
+								<a href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<table id="example" class="table table-bordered table-stripped drag-table display">
+					<thead>
+						<tr>
+							<th>Seq.</th>
+							<th>Job Number</th>
+							<th>ID</th>
+							<th>Address Type</th>
+						</tr>
+					</thead>
+					<tbody>
+	
+					</tbody>
+				</table>
+				<div id="result"></div>
+			</div>
+		</div>
+	</body>
+</html>
